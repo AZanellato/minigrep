@@ -5,9 +5,7 @@ use minigrep;
 use minigrep::Config;
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
-
-    let config = Config::new(&args).unwrap_or_else(|err| {
+    let config = Config::new(env::args()).unwrap_or_else(|err| {
         // with eprintln! we print to stderr instead of
         // stdout, as it should be
         eprintln!("Problem parsing arguments: {}", err);
